@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #11004d; /* Dark blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            color: rgb(182, 182, 182);
+            padding: 20px;
+        }
+
+        /* Increased size of logo */
+        .logo {
+            width: 300px; /* Changed width */
+            height: 200px; /* Changed height */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #C4C4C4;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .input-field {
+            flex: 1;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            padding: 10px;
+        }
+
+        .login-button {
+            width: 300px;
+            padding: 15px;
+            background-color: #D3D3D3;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #bfbfbf;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Image with increased size -->
+        <img src="C:\Users\mahla\Downloads\Web_Xhaw\Pictures\Empower.png" alt="Empowering the Nation" class="logo">
+
+        <!-- Text Slogans -->
+        <h1>EMPOWERING THE NATION</h1>
+        <p>For the nation</p>
+
+        <!-- Email and Password Inputs -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <img src="C:\Users\mahla\Downloads\Web_Xhaw\Pictures\contact 1.png" class="icon" alt="User Icon">
+                <input type="email" placeholder="Enter your email" class="input-field">
+            </div>
+
+            <div class="input-wrapper">
+                <img src="C:\Users\mahla\Downloads\Web_Xhaw\Pictures\lock 1.png" class="icon" alt="Password Icon">
+                <input type="password" placeholder="Password" class="input-field">
+            </div>
+
+            <!-- Login Button with redirect functionality -->
+            <button class="login-button" onclick="location.href='Homepage.html'">Login</button>
+        </div>
+    </div>
+</body>
+</html>

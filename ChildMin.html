@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Minding Course Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ddd;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Back button styling */
+        .back-button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* The dropdown menu (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Options icon styling */
+        .options-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .details {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .details p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .details .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.4em;
+        }
+
+        .details .content-text {
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <!-- Back button that navigates to Sixmon.html -->
+            <button class="back-button" onclick="goBack()">back</button>
+
+            <h1>Details of Child Minding Course:</h1>
+
+            <!-- Dropdown menu for options -->
+            <div class="dropdown">
+                <div class="options-icon">⋮</div> <!-- Three-dot vertical options icon -->
+                <div class="dropdown-content">
+                    <a href="Login.html">Logout</a>
+                    <a href="Sixmon.html">Six-month Courses</a>
+                    <a href="Sixweek.html">Six-week Courses</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="details">
+            <p class="section-title">Fees:</p>
+            <p class="content-text">R1500</p>
+
+            <p class="section-title">Purpose:</p>
+            <p class="content-text">To provide basic child and baby care.</p>
+
+            <p class="section-title">Content:</p>
+            <ol>
+                <li>Birth to six-month old baby needs</li>
+                <li>Seven-month to one-year old needs</li>
+                <li>Toddler needs</li>
+                <li>Educational toys</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle back button -->
+    <script>
+        function goBack() {
+            window.location.href = 'SixWeek.html'; // Redirects to Sixmon.html
+        }
+    </script>
+</body>
+
+</html>

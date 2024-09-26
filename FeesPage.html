@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        input[type="submit"],
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #357ae8;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        #total-fees {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #course-list {
+            font-size: 1em;
+            color: #555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Course Registration Form</h1>
+        <form id="course-form" action="submit_form.php" method="POST" onsubmit="displaySummary(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="courses">Select Courses:</label>
+                <input type="checkbox" id="course1" name="courses" value="1500"> Landscaping Course - R1500<br>
+                <input type="checkbox" id="course2" name="courses" value="1500"> Life Skills Course - R1500<br>
+                <input type="checkbox" id="course3" name="courses" value="1500"> First Aid Course - R1500<br>
+                <input type="checkbox" id="course4" name="courses" value="1500"> Sewing Course - R1500<br>
+                <input type="checkbox" id="course5" name="courses" value="750"> Garden Maintenance - R750<br>
+                <input type="checkbox" id="course6" name="courses" value="750"> Child Minding - R750<br>
+                <input type="checkbox" id="course7" name="courses" value="750"> Cooking Course - R750<br>
+            </div>
+
+            <button type="button" onclick="calculateFees()">Calculate Fees</button>
+
+            <div id="total-fees">Total Fees: R0</div>
+            <div id="course-list"></div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function calculateFees() {
+            let courseCheckboxes = document.querySelectorAll('input[name="courses"]:checked');
+            let total = 0;
+            let courseNames = [];
+            let discount = 0;
+
+            // Calculate total and gather selected course names
+            courseCheckboxes.forEach(function(checkbox) {
+                total += parseInt(checkbox.value);
+                courseNames.push(checkbox.nextSibling.textContent.trim());
+            });
+
+            let numCourses = courseCheckboxes.length;
+
+            // Apply discounts based on the number of courses
+            if (numCourses === 2) {
+                discount = 0.05;  // 5% discount for 2 courses
+            } else if (numCourses === 3) {
+                discount = 0.10;  // 10% discount for 3 courses
+            } else if (numCourses > 3) {
+                discount = 0.15;  // 15% discount for more than 3 courses
+            }
+
+            let discountedTotal = total - (total * discount);
+            document.getElementById('total-fees').innerText = `Total Fees: R${discountedTotal.toFixed(2)}`;
+            document.getElementById('course-list').innerText = `Selected Courses: ${courseNames.join(', ')}`;
+        }
+
+        function displaySummary(event) {
+            event.preventDefault();
+            let courseCheckboxes = document.querySelectorAll('input[name="courses"]:checked');
+            let totalCourses = courseCheckboxes.length;
+            let totalFees = document.getElementById('total-fees').innerText;
+
+            alert(`You have selected ${totalCourses} courses.\n${totalFees}`);
+            document.getElementById('course-form').submit();  // Submitting form after alert
+        }
+    </script>
+
+</body>
+</html>
